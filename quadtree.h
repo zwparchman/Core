@@ -30,6 +30,7 @@
 
 #include <set>
 #include <list>
+#include <vector>
 
 #include "gl.h"
 #include "bounds.h"
@@ -58,7 +59,7 @@ class QuadNode {
     Bounds2D bounds;
     
     std::vector<QuadNode*> children;
-    std::list<QuadItem*> items;
+    std::vector<QuadItem*> items;
 
     QuadTree* tree;
 

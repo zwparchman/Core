@@ -80,7 +80,7 @@ void QuadNode::addItem(QuadItem* item) {
     newbounds = Bounds2D( bounds.min + middle, bounds.max );
     children.push_back(new QuadNode(tree, this, newbounds, depth));
 
-    for(std::list<QuadItem*>::iterator it = items.begin(); it != items.end(); it++) {
+    for(auto it = items.begin(); it != items.end(); it++) {
         QuadItem* oi = *it;
         tree->item_count--;
         oi->node_count--;
@@ -128,7 +128,7 @@ int QuadNode::getItemsInFrustum(std::set<QuadItem*>& itemset, Frustum& frustum) 
 
     if(!items.empty()) {
         int items_added = 0;
-        for(std::list<QuadItem*>::iterator it = items.begin(); it != items.end(); it++) {
+        for(auto it = items.begin(); it != items.end(); it++) {
             QuadItem* oi = (*it);
 
             if(oi!=0) {
@@ -159,7 +159,7 @@ int QuadNode::getItemsInBounds(std::set<QuadItem*>& itemset, Bounds2D& bounds) c
     if(!items.empty()) {
         int items_added = 0;
 
-        for(std::list<QuadItem*>::const_iterator it = items.begin(); it != items.end(); it++) {
+        for(auto it = items.cbegin(); it != items.cend(); it++) {
             QuadItem* oi = (*it);
             itemset.insert(oi);
             items_added++;
@@ -189,7 +189,7 @@ int QuadNode::getItemsAt(std::set<QuadItem*>& itemset, vec2 pos) {
 
     if(!items.empty()) {
         int items_added = 0;
-        for(std::list<QuadItem*>::iterator it = items.begin(); it != items.end(); it++) {
+        for(auto it = items.begin(); it != items.end(); it++) {
             QuadItem* oi = (*it);
             if(oi!=0) {
                 itemset.insert(oi);
@@ -230,7 +230,7 @@ void QuadNode::visitItemsInFrustum(const Frustum & frustum, VisitFunctor<QuadIte
 
     if(!items.empty()) {
 
-        for(std::list<QuadItem*>::const_iterator it = items.begin(); it != items.end(); it++)
+        for(auto it = items.cbegin(); it != items.cend(); it++)
             visit(*it);
 
     }else if(!children.empty()){
@@ -249,7 +249,7 @@ void QuadNode::visitItemsInBounds(const Bounds2D & bounds, VisitFunctor<QuadItem
 
     if(!items.empty()) {
 
-        for(std::list<QuadItem*>::const_iterator it = items.begin(); it != items.end(); it++)
+        for(auto it = items.cbegin(); it != items.cend(); it++)
             visit(*it);
 
     }else if(!children.empty()){
@@ -267,7 +267,7 @@ void QuadNode::visitItemsAt(const vec2 & pos, VisitFunctor<QuadItem> & visit){
 
   if(!items.empty()){
 
-    for(std::list<QuadItem*>::const_iterator it = items.begin(); it != items.end(); it++)
+    for(auto it = items.cbegin(); it != items.cend(); it++)
       if(*it) visit(*it);
 
   }else if(!children.empty()){
@@ -374,7 +374,7 @@ void QuadNode::generateLists() {
 
         glNewList(listid, GL_COMPILE);
 
-        for(std::list<QuadItem*>::iterator it = items.begin(); it != items.end(); it++) {
+        for(auto it = items.begin(); it != items.end(); it++) {
             QuadItem* oi = (*it);
             oi->drawQuadItem();
         }
@@ -418,7 +418,7 @@ void QuadNode::outline() {
 void QuadNode::outlineItems() {
     if(items.empty() && children.empty()) return;
 
-    for(std::list<QuadItem*>::iterator it = items.begin(); it != items.end(); it++) {
+    for(auto it = items.begin(); it != items.end(); it++) {
         QuadItem* oi = (*it);
         oi->quadItemBounds.draw();
     }
