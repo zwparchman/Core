@@ -29,6 +29,7 @@
 #include "display.h"
 #include "logger.h"
 #include "SDL_syswm.h"
+#include <unistd.h>
 
 std::string gSDLAppResourceDir;
 std::string gSDLAppConfDir;

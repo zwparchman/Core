@@ -26,6 +26,7 @@
 */
 
 #include "seeklog.h"
+#include <unistd.h>
 
 long long gSeekLogMaxBufferSize = 104857600;
 
