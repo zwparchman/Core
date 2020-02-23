@@ -16,8 +16,6 @@
 */
 
 #include "ppm.h"
-#include "display.h"
-#include "sdlapp.h"
 
 #ifdef _WIN32
     #include <io.h>

@@ -26,7 +26,6 @@
 */
 
 #include "seeklog.h"
-#include "sdlapp.h"
 
 long long gSeekLogMaxBufferSize = 104857600;
 

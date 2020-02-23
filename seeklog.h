@@ -50,7 +50,7 @@ class StreamLog : public BaseLog {
 
     bool fcntl_fail;
 #ifdef _WIN32
-    void* stdin_handle;
+    HANDLE stdin_handle;
 #endif
 public:
     StreamLog();

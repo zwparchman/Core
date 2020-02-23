@@ -24,7 +24,8 @@
 #include <string>
 #include <exception>
 
-#include "gl.h"
+#include "sdlapp.h"
+#include "display.h"
 
 enum { FRAME_EXPORTER_WAIT,
        FRAME_EXPORTER_DUMP,
